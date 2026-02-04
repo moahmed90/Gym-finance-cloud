@@ -24,5 +24,6 @@ Infrastructure
 - CloudWatch logging for runtime visibility
 
 Production Deployment
-The service is deployed as an Amazon ECS Service running on AWS Fargate.
-The service maintains the desired task count and pulls container images from Amazon ECR.
+
+- The service is deployed as an Amazon ECS Service running on AWS Fargate.
+- The service maintains the desired task count and pulls container images from    Amazon ECR.
