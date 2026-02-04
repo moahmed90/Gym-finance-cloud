@@ -160,6 +160,3 @@ Roadmap
 	•	Optional EKS deployment
 
 ⸻
-	•	Or do a final “DevOps Architect” polish pass
-
-But as it stands — this is solid.
