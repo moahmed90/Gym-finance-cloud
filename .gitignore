@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env files
+.env
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+
+# Postgres local volume (if ever created locally)
+pgdata/
