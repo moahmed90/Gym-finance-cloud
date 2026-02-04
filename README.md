@@ -1,32 +1,49 @@
+
 Gym Finance Cloud
 
-Gym Finance Cloud is a cloud-native finance management platform for gym studios, built with a strong focus on production-ready DevOps practices.
+Gym Finance Cloud is a cloud-native finance management platform for gym studios, built to demonstrate production-ready DevOps and backend architecture.
 
-It combines a FastAPI backend, a modern admin UI, and an end-to-end container deployment pipeline to demonstrate how a real-world system is designed, deployed, and operated.
+The project combines a FastAPI backend, a modern admin UI, and an end-to-end container deployment pipeline to show how a real-world system is designed, deployed, and operated in the cloud.
 
 ⸻
 
 Purpose
 
 Many small gyms manage memberships, payments, and balances using spreadsheets or ad-hoc tools.
-Gym Finance Cloud is designed to act as a single source of truth for core financial and membership data, while showcasing modern backend and cloud architecture.
+
+Gym Finance Cloud is designed to act as a single source of truth for core financial and membership data, while showcasing modern backend design, containerisation, CI/CD, and cloud infrastructure practices.
 
 ⸻
 
 Architecture
 
-Backend
+<details>
+<summary><strong>Backend</strong></summary>
+
+
 	•	FastAPI REST API
 	•	PostgreSQL database
-	•	Alembic database migrations
-	•	Health check endpoint for monitoring and orchestration
+	•	Alembic migrations
+	•	/health endpoint for monitoring and orchestration
 
-Frontend
+</details>
+
+
+<details>
+<summary><strong>Frontend</strong></summary>
+
+
 	•	Next.js (App Router)
 	•	Admin dashboard and management views
 	•	Minimal, modern UI with glass-style components
 
-DevOps & Cloud
+</details>
+
+
+<details>
+<summary><strong>DevOps & Cloud</strong></summary>
+
+
 	•	Dockerised local development
 	•	GitHub Actions CI pipeline
 	•	Amazon ECR for container image storage
@@ -34,25 +51,30 @@ DevOps & Cloud
 	•	Terraform for infrastructure provisioning
 	•	Local Kubernetes cluster for orchestration practice
 
+</details>
+
+
+
 ⸻
 
-Deployment flow
+Deployment Flow
 	1.	Code is pushed to GitHub
 	2.	GitHub Actions builds and tests the API container
-	3.	Docker image is published to Amazon ECR
-	4.	ECS Fargate pulls and runs the latest image
-	5.	Health checks verify service readiness
+	3.	Docker image is tagged with commit SHA
+	4.	Image is pushed to Amazon ECR
+	5.	ECS Fargate pulls and runs the latest image
+	6.	Health checks verify service readiness
 
 ⸻
 
-Repository structure
+Repository Structure
 
 .
 ├── src/                    # FastAPI application
 ├── alembic/                # Database migrations
 ├── gym-finance-ui/         # Next.js admin portal
 ├── infra/
-│   ├── terraform/          # AWS infrastructure
+│   ├── terraform/          # AWS infrastructure (VPC, ECS, IAM)
 │   └── k8s-local/          # Local Kubernetes manifests
 ├── docker-compose.yml
 ├── Dockerfile
@@ -62,11 +84,11 @@ Repository structure
 
 ⸻
 
-Implemented features
+Implemented Features
 	•	FastAPI service with /health endpoint
 	•	PostgreSQL integration with Alembic migrations
-	•	Fully containerised local environment
-	•	CI pipeline using GitHub Actions
+	•	Fully containerised local development environment
+	•	GitHub Actions CI pipeline
 	•	Automated image publishing to Amazon ECR
 	•	ECS Fargate service running in AWS
 	•	Admin dashboard UI
@@ -83,7 +105,7 @@ CI/CD
 
 ⸻
 
-Local development
+Local Development
 
 Backend
 
@@ -105,25 +127,25 @@ npm run dev
 Infrastructure
 
 AWS
-	•	ECS (Fargate)
-	•	ECR
+	•	Amazon ECS (Fargate)
+	•	Amazon ECR
 	•	IAM execution roles
 	•	CloudWatch logging
 	•	VPC provisioned with Terraform
 
-Kubernetes (local)
+Kubernetes (Local)
 	•	Single-node cluster
 	•	Deployment and Service manifests
 	•	Readiness and liveness probes
 
 ⸻
 
-Why this project
+Why This Project
 
 This project was built to demonstrate:
 	•	Production-style backend architecture
 	•	Containerisation and CI/CD pipelines
-	•	Cloud infrastructure provisioning
+	•	Cloud infrastructure provisioning with Terraform
 	•	Practical DevOps workflows alongside application code
 
 The structure and deployment approach are intentionally designed to be client-ready, even as application features continue to evolve.
@@ -138,3 +160,6 @@ Roadmap
 	•	Optional EKS deployment
 
 ⸻
+	•	Or do a final “DevOps Architect” polish pass
+
+But as it stands — this is solid.
