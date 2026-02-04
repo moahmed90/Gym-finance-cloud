@@ -8,15 +8,17 @@ function Metric({
   highlight?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+    <div className="group rounded-2xl border border-zinc-200 bg-white/80 p-4 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="text-sm text-zinc-500">{title}</div>
       <div
-        className={`mt-2 text-2xl font-semibold ${
-          highlight ? "text-indigo-600" : "text-zinc-900"
-        }`}
+        className={[
+          "mt-2 text-2xl font-semibold",
+          highlight ? "text-indigo-600" : "text-zinc-900",
+        ].join(" ")}
       >
         {value}
       </div>
+      <div className="mt-3 h-1 w-12 rounded-full bg-zinc-100 transition group-hover:bg-indigo-100" />
     </div>
   );
 }
@@ -25,7 +27,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-zinc-900">Dashboard</h1>
+        <h2 className="text-2xl font-semibold text-zinc-900">Dashboard</h2>
         <p className="mt-1 text-sm text-zinc-500">
           Overview of members, dues, and outstanding balances.
         </p>
@@ -38,7 +40,7 @@ export default function DashboardPage() {
         <Metric title="Churn risk" value="6" />
       </div>
 
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="rounded-2xl border border-zinc-200 bg-white/80 p-6 shadow-sm backdrop-blur">
         <div className="text-sm font-medium text-zinc-900">Next actions</div>
         <div className="mt-2 text-sm text-zinc-500">
           Add members, create plans, and generate invoices.
